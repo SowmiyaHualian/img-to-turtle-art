@@ -56,3 +56,7 @@ pip install opencv-python
 - Only external contours are detected (`cv2.RETR_EXTERNAL`), so internal details/holes within shapes won't be drawn.
 - Complex or highly detailed images can result in long draw times.
 - `screen.tracer(0)` and `pen.speed(0)` at the end of the script run *after* `turtle.done()` is effectively reached in the loop, so they have no visible effect — these lines can be removed or moved earlier if you want to fast-forward the finishing touches.
+
+## Acknowledgements
+
+This project is based on/adapted from [nourhan11atef](https://github.com/nourhan11atef)'s [Spiderman_Recreate_image](https://github.com/nourhan11atef/Spiderman_Recreate_image) repo — the original code for image-to-turtle contour drawing. Full credit to her for the base implementation — I experimented with it further.
