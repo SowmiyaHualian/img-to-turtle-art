@@ -59,4 +59,10 @@ pip install opencv-python
 
 ## Acknowledgements
 
-This project is based on/adapted from [nourhan11atef](https://github.com/nourhan11atef)'s [Spiderman_Recreate_image](https://github.com/nourhan11atef/Spiderman_Recreate_image) repo — the original code for image-to-turtle contour drawing. Full credit to her for the base implementation — I experimented with it further.
+This project is based on/adapted from [nourhan11atef](https://github.com/nourhan11atef)'s [Spiderman_Recreate_image](https://github.com/nourhan11atef/Spiderman_Recreate_image) repo — the original code for image-to-turtle contour drawing. Full credit to her for the base implementation — I modified and experimented with it further.
+
+## Changes I Made
+
+- **Color-sampled fills** — instead of drawing every contour in flat black, each shape is now filled with the *average color sampled from that region of the original image* (via `cv2.mean` with a per-contour mask), so the output resembles the source image's coloring rather than a plain silhouette.
+- **CLI image argument** — the image path is now passed as a command-line argument (`python turtle_draw.py myimage.png`) instead of being hardcoded, so the script works on any image without editing the source.
+- **Fixed dead code** — `screen.tracer(0)` and `pen.speed(0)` originally ran after the drawing loop but before `turtle.done()`, where they had no visible effect since nothing was drawn afterward. Reordered so `screen.update()` is called right after, making the final state render correctly.
